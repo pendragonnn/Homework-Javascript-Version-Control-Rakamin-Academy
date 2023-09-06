@@ -55,5 +55,8 @@ function sumArray(arr) {
 }
 
 // count and return average value in each array
+function averageArray(arr) {
+  return sumArray(arr) / arr.length
+}
 
 // init function
