@@ -44,6 +44,15 @@ function maxCheck(arr) {
 }
 
 // sum and return total value in each array
+function sumArray(arr) {
+  let sum = 0;
+
+  for(let i of arr) {
+    sum += 1;
+  }
+
+  return sum;
+}
 
 // count and return average value in each array
 
