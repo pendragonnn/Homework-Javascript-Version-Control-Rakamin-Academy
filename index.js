@@ -48,7 +48,7 @@ function sumArray(arr) {
   let sum = 0;
 
   for (let i of arr) {
-    sum += 1;
+    sum += i;
   }
 
   return sum;
