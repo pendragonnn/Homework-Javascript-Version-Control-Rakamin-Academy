@@ -31,6 +31,17 @@ function minCheck(arr) {
 }
 
 // check and return the maximum number in each array
+function maxCheck(arr) {
+  let max = arr[0]
+
+  for(i = 0; i < arr.length; i++) {
+    if(arr[i] > max) {
+      max = arr[i]
+    }
+  }
+
+  return max
+}
 
 // sum and return total value in each array
 
