@@ -18,6 +18,17 @@ function arrayGenerator(element = 100) {
 }
 
 // check and return the minimum number in each array
+function minCheck(arr) {
+  let min = arr[0];
+
+  for (i = 0; i < arr.length; i++) {
+    if(arr[i] < min) {
+      min = arr[i]
+    } 
+  }
+
+  return min
+}
 
 // check and return the maximum number in each array
 
