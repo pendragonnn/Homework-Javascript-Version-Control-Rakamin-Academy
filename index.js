@@ -7,6 +7,15 @@ function getRandomInt(min, max) {
 }
 
 // generate array with default parameter 100
+function arrayGenerator(element = 100) {
+  let arr = []
+
+  for(i = 0; i < element; i++) {
+    arr.push(getRandomInt(1, 50))
+  }
+
+  return arr
+}
 
 // check and return the minimum number in each array
 
