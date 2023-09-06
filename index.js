@@ -59,4 +59,20 @@ function averageArray(arr) {
   return sumArray(arr) / arr.length
 }
 
+// split the array into odd and even element
+function arrayOddEven(arr) {
+  let arrayOdd = []
+  let arrayEven = []
+
+  for(let i of arr) {
+    if(i % 2 == 0) {
+      arrayEven.push(i)
+    } else {
+      arrayOdd.push(i)
+    }
+  }
+
+  return { arrayOdd, arrayEven }
+}
+
 // init function
