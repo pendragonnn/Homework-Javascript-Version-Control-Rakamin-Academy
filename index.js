@@ -6,12 +6,23 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-// generate array with default parameter 100
-function arrayGenerator(element = 100) {
+// generate array with default parameter 200
+function arrayGenerator(element = 200) {
   let arr = [];
+  let limitOdd = 0;
+  let limitEven = 0;
 
   for (i = 0; i < element; i++) {
-    arr.push(getRandomInt(1, 50));
+    let temp = getRandomInt(1, 50);
+    if (temp % 2 == 0 && limitEven < 50) {
+      arr.push(temp);
+      limitEven++;
+    }
+
+    if (temp % 2 == 1 && limitOdd < 50) {
+      arr.push(temp);
+      limitOdd++;
+    }
   }
 
   return arr;
@@ -63,6 +74,7 @@ function averageArray(arr) {
 function arrayOddEven(arr) {
   let arrayOdd = [];
   let arrayEven = [];
+  const array = arr
 
   for (let i of arr) {
     if (i % 2 == 0) {
@@ -72,21 +84,27 @@ function arrayOddEven(arr) {
     }
   }
 
-  return { arrayOdd, arrayEven };
+  return { array, arrayOdd, arrayEven };
 }
 
 // init function
 function init() {
-  const { arrayOdd, arrayEven } = arrayOddEven(arrayGenerator(50));
+  const { array, arrayOdd, arrayEven } = arrayOddEven(arrayGenerator());
 
-  console.log(`Array genap : ${arrayEven}`);
-  console.log(`Array ganjil : ${arrayOdd}`);
+  console.log(`Array : ${array}`);
+  console.log(`Array genap berjumlah ${arrayEven.length} : ${arrayEven}`);
+  console.log(`Array ganjil berjumlah ${arrayOdd.length} : ${arrayOdd}`);
 
+  console.log(`Nilai minimum dari array genap adalah ${minCheck(arrayEven)}`);
+  console.log(`Nilai minimum dari array ganjil adalah ${minCheck(arrayOdd)}`);
   if (minCheck(arrayEven) > minCheck(arrayOdd)) {
     console.log("Min lebih besar array genap");
   } else {
     console.log("Min lebih besar array ganjil");
   }
+
+  console.log(`Nilai maximum dari array genap adalah ${maxCheck(arrayEven)}`);
+  console.log(`Nilai maximum dari array ganjil adalah ${maxCheck(arrayOdd)}`);
 
   if (maxCheck(arrayEven) < maxCheck(arrayOdd)) {
     console.log("Max lebih besar array ganjil");
@@ -94,19 +112,22 @@ function init() {
     console.log("Max lebih besar array genap");
   }
 
+  console.log(`Nilai total dari array genap adalah ${sumArray(arrayEven)}`);
+  console.log(`Nilai total dari array ganjil adalah ${sumArray(arrayOdd)}`);
   if (averageArray(arrayEven) == averageArray(arrayOdd)) {
-    console.log(
-      `Total memiliki nilai sama antara array genap dan ganjil, yaitu genap : ${sumArray(
-        arrayEven
-      )} ganjil : ${sumArray(arrayOdd)}`
-    );
+    console.log(`Total memiliki nilai sama antara array genap dan ganjil`);
   } else {
     console.log(
-      `Total memiliki nilai yang tidak sama antara array genap dan ganjil, yaitu genap : ${sumArray(
-        arrayEven
-      )} ganjil : ${sumArray(arrayOdd)}`
+      `Total memiliki nilai yang tidak sama antara array genap dan ganjil`
     );
   }
+
+  console.log(
+    `Nilai rata-rata dari array genap adalah ${averageArray(arrayEven)}`
+  );
+  console.log(
+    `Nilai rata-rata dari array ganjil adalah ${averageArray(arrayOdd)}`
+  );
 
   if (averageArray(arrayEven) < averageArray(arrayOdd)) {
     console.log("Average lebih besar array ganjil");
